@@ -1,0 +1,42 @@
+#open-settings,.adventure button,.adventure select{font:inherit;cursor:pointer;color:inherit}
+#open-settings{position:fixed;right:14px;bottom:14px;z-index:15;padding:8px 14px;background:#152321de;border:1px solid #a99b72;border-radius:20px;color:#fff3d5;font:600 13px system-ui}
+.adventure{margin:auto;width:min(520px,94vw);max-height:86dvh;padding:0;border:1px solid #96825a;border-radius:14px;background:#142321;color:#ede9d9;box-shadow:0 20px 80px #0009;font:15px/1.45 system-ui}
+.adventure::backdrop{background:#020a08a8}
+.adventure header,.adventure section,.adventure footer{padding:18px 22px}
+.adventure header{display:flex;align-items:center;justify-content:space-between}
+.adventure h2{font:normal 30px Georgia,serif;color:#fff0c2}.adventure h3{font:normal 19px Georgia,serif;margin:12px 0 8px}
+.adventure nav{display:flex;padding:0 20px;border-bottom:1px solid #44514a}
+.adventure button,.adventure select{background:#243733;border:1px solid #586758;border-radius:6px;padding:6px 11px}
+.adventure nav button{border:0;border-radius:0;background:transparent;padding:9px;color:#bbbfb0}.adventure nav button[aria-pressed=true]{color:#ffe2a4;box-shadow:inset 0 -2px #d7b779}
+.adventure label,.adventure .row{display:flex;gap:10px;align-items:center;justify-content:space-between;margin:7px 0}
+.adventure p{font-size:13px;color:#cbcfbf;margin:7px 0 12px}
+.adventure [data-bind]{min-width:88px}.adventure details{margin:10px 0}.adventure summary{cursor:pointer;color:#e7d7ab}
+.adventure footer{padding-top:0;color:#f0d297;font-size:14px}.adventure :focus-visible,#open-settings:focus-visible{outline:2px solid #ffe09f;outline-offset:2px}
+#hud-controls{position:fixed;z-index:10;pointer-events:none}
+#hud-controls button{position:absolute;border:0;background:transparent;border-radius:50%;padding:0;pointer-events:auto;cursor:pointer;touch-action:none;color:#fff}
+#hud-controls button:is(:hover,:focus-visible){outline:2px solid #ffebae;z-index:1}
+#hud-controls button:is(:hover,:focus-visible)::after{content:attr(data-hint);position:absolute;top:calc(100% + 5px);left:50%;transform:translateX(-50%);width:max-content;pointer-events:none;background:#13211ff5;color:#fff0cc;border:1px solid #938865;border-radius:5px;padding:3px 7px;font:600 13px/1.35 system-ui}
+#camera-notice{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);z-index:14;background:#152321ed;color:#fff3d5;padding:6px 12px;border-radius:5px;font:13px system-ui;pointer-events:none}
+#canvas.free-look{cursor:default!important}
+.adventure nav{flex-wrap:wrap}.adventure .option-search{box-sizing:border-box;width:100%;background:#0f1c1a;color:#fff3d8;border:1px solid #657464;border-radius:6px;padding:9px 12px;font:inherit}
+.adventure .option-group{border-bottom:1px solid #3e5048;padding:6px 0;margin:3px 0}.adventure .option-group summary{padding:6px 0}.adventure .option-group>button{margin:4px 4px 4px 0}
+.adventure .cheat-picker{display:flex;align-items:end;gap:8px;margin:9px 0}.adventure .cheat-picker label{flex:1;min-width:0;display:grid;gap:3px;margin:0}
+.adventure .option-group select{max-width:100%}.adventure [hidden]{display:none!important}.adventure footer:not(:empty){background:#142321;position:sticky;bottom:0;padding:8px 22px;border-top:1px solid #46594c}
+
+.native-adventure-tabs{position:fixed;bottom:6px;left:50%;transform:translateX(-50%);z-index:16;display:flex;max-width:96vw;flex-wrap:wrap;justify-content:center;gap:3px;background:#142321ee;padding:4px;border-radius:8px}.native-adventure-tabs[hidden]{display:none}.native-adventure-tabs button{cursor:pointer;background:#243733;color:#fff0c2;border:1px solid #586758;border-radius:5px;padding:5px 9px;font:13px system-ui}
+.adventure[open]{display:grid;grid-template-rows:auto auto minmax(0,1fr) auto;width:min(720px,94vw);height:min(650px,88dvh);max-height:92dvh;overflow:hidden;border:3px double #c2a668;border-radius:4px;background:linear-gradient(145deg,#21372f,#142b27 48%,#101f20);box-shadow:0 0 0 4px #15231e,0 0 0 5px #8b794c,0 24px 80px #000b}
+.adventure::backdrop{background:#08121bc4}
+.adventure header{padding:14px 22px;background:linear-gradient(100deg,#193b38,#13282c);border-bottom:1px solid #968458}
+.adventure h2{display:flex;align-items:center;gap:12px;font:small-caps bold 36px Georgia,serif;letter-spacing:.06em;color:#f6e4b0;text-shadow:1px 2px #000}
+.adventure h2::before{content:'';width:25px;height:23px;background:linear-gradient(150deg,#fff0a1,#aa7f2e);clip-path:polygon(50% 0,75% 50%,25% 50%,50% 0,100% 100%,50% 100%,75% 50%,25% 50%,50% 100%,0 100%)}
+.adventure kbd{font:11px system-ui;border:1px solid #9b957a;padding:1px 4px;border-radius:3px;margin-left:5px}
+.adventure nav{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));padding:6px;gap:3px;background:#101e22;border-bottom:1px solid #9a8659}
+.adventure nav button{display:grid;place-items:center;gap:3px;padding:5px 2px;min-width:0;border:1px solid transparent;color:#d8ded2;font:13px Georgia,serif}
+.adventure nav img{width:31px;height:31px;image-rendering:pixelated;filter:drop-shadow(1px 2px 1px #000)}
+.adventure nav button:is(:hover,[aria-pressed=true]){background:#31443b;border-color:#b59e60;color:#fff1bf}
+.adventure section{overflow:auto;scrollbar-color:#78856d #14251f;padding:14px clamp(12px,4vw,32px) 22px;min-height:0}
+.adventure section>label{padding:5px 0;border-bottom:1px solid #748a6c40}.adventure input{accent-color:#dfc477}.adventure footer:empty{display:none}
+@media(max-width:540px){.adventure nav{grid-template-columns:repeat(3,minmax(0,1fr))}.adventure nav button{display:flex;justify-content:center;align-items:center}.adventure nav img{width:22px;height:22px}.adventure header{padding:8px 12px}.adventure h2{font-size:28px}.adventure section>label{flex-wrap:wrap}}
+.adventure fieldset{margin:18px 0 0;padding:10px 14px 14px;border:1px solid #68775e;border-radius:4px}.adventure legend{padding:0 6px;font:18px Georgia,serif;color:#f0dda8}
+
+#skip-cutscene{position:fixed;right:14px;bottom:58px;z-index:15;color:#fff0ca;background:#172b25ed;border:1px solid #b9a277;border-radius:20px;padding:9px 15px;cursor:pointer;font:600 13px system-ui}
