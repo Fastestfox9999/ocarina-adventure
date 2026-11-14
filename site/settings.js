@@ -212,7 +212,7 @@
     const api=engine();if(!api)return;
     if(skipChain&&!panel.open&&!nativeVisible()){
       const play=api.gameLoaded(1)&&HEAPU32[api.playStateAddress.value>>>2];
-      if(play&&api.playerInCutscene(play)){api.skipRequested.value=1;skipIdleSince=0}
+      if(!play||api.gameplayPaused()||api.playerInCutscene(play)){if(play)api.skipRequested.value=1;skipIdleSince=0}
       else if(!skipIdleSince)skipIdleSince=performance.now();
       else if(performance.now()-skipIdleSince>1800){skipChain=false;api.skipRequested.value=0;setCutsceneSkips(false)}
     }
