@@ -1,4 +1,8 @@
-# Ocarina of Time · local edition
+# Ocarina of Time · Adventure edition
+
+[Play in your browser](https://fastestfox9999.github.io/ocarina-adventure/) or [download the Mac bundle](https://github.com/Fastestfox9999/ocarina-adventure/releases/latest). The online game needs no account or installation. Browser saves belong to the address where you play. To move progress, download a backup in M → Saves and import it on the new address.
+
+## Local setup
 
 Double-click **Play Ocarina.command** on macOS. The launcher uses Python 3 and opens the game at http://127.0.0.1:18764/. Keep its Terminal window open while playing. The game assets are included. Chrome was used for testing.
 
