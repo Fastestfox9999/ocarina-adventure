@@ -4,7 +4,7 @@ on:
     branches: [main]
   workflow_dispatch:
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 concurrency:
@@ -28,3 +28,18 @@ jobs:
           path: site
       - uses: actions/deploy-pages@v4
         id: deployment
+      - name: Package Mac download
+        run: |
+          mkdir -p package/Ocarina
+          cp -R site package/Ocarina/
+          cp README.md patch_engine.py package/Ocarina/
+          sed '/^python3 .*prepare.py/d' 'Play Ocarina.command' > 'package/Ocarina/Play Ocarina.command'
+          chmod +x 'package/Ocarina/Play Ocarina.command'
+          cd package
+          zip -qr ../Ocarina-Adventure-Mac.zip Ocarina
+      - name: Publish download
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release view adventure-skip8 || gh release create adventure-skip8 --verify-tag --title 'Ocarina Adventure — play online or download for Mac' --notes-file RELEASE.md
+          gh release upload adventure-skip8 Ocarina-Adventure-Mac.zip --clobber
