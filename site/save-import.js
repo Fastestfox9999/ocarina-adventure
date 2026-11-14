@@ -3,8 +3,8 @@ function addSaveImport(content, status, occupied) {
   const group=document.createElement('fieldset');
   group.innerHTML='<legend>Restore a backup</legend><label>Destination <select aria-label="Import destination"></select></label><p>Import a Ship of Harkinian .sav file. The game will restart at file select. Save any current progress first.</p><button type="button">Import backup…</button><input type="file" hidden accept=".sav,.json">';
   const destination=group.querySelector('select'),picker=group.querySelector('input'),button=group.querySelector('button');
-  for(const slot of [1,2,3])destination.add(new Option('File '+slot+(occupied.includes(slot)?' · occupied':' · empty'),slot));
-  destination.value=[1,2,3].find(slot=>!occupied.includes(slot))||1;
+  for(const slot of [1,2,3,4,5])destination.add(new Option('File '+slot+(occupied.includes(slot)?' · occupied':' · empty'),slot));
+  destination.value=[1,2,3,4,5].find(slot=>!occupied.includes(slot))||1;
   button.onclick=()=>picker.click();
   picker.onchange=async()=>{
     const file=picker.files[0];if(!file)return;

@@ -42,3 +42,7 @@
 #skip-cutscene{position:fixed;right:14px;bottom:58px;z-index:15;color:#fff0ca;background:#172b25ed;border:1px solid #b9a277;border-radius:20px;padding:9px 15px;cursor:pointer;font:600 13px system-ui}
 
 .adventure nav{grid-template-columns:repeat(5,minmax(0,1fr))}.adventure nav button{white-space:normal;overflow-wrap:anywhere}#engine-settings{font-size:11px;margin-left:auto;margin-right:8px}.save-slot span{flex:1}.save-slot button{flex-shrink:0}@media(max-width:540px){.adventure nav{grid-template-columns:repeat(3,minmax(0,1fr))}#engine-settings{max-width:75px}.save-slot{flex-wrap:wrap}}
+#canvas{width:100vw!important;height:100dvh!important;left:0!important;top:0!important;margin:0!important}
+.file-chooser[open]{height:auto;max-height:90dvh;grid-template-rows:auto minmax(0,1fr) auto}
+.game-file{display:block;width:100%;margin:10px 0;padding:14px!important;text-align:left}
+.file-chooser input{max-width:160px;font:inherit;color:inherit;background:#243733;border:1px solid #586758;padding:6px}

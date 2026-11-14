@@ -3,7 +3,7 @@ python3 "${0:A:h}/prepare.py" || exit 1
 cd -- "${0:A:h}/site" || exit 1
 url='http://127.0.0.1:18764/'
 if curl -fsS "${url}settings.js" 2>/dev/null | grep -q 'ocarina.adventure.settings.v1'; then
-  open -a "Google Chrome" "${url}?update=niche9" || open "${url}?update=niche9"
+  open -a "Google Chrome" "${url}?update=controls10" || open "${url}?update=controls10"
   exit
 fi
 python3 -m http.server 18764 --bind 127.0.0.1 &
@@ -15,7 +15,7 @@ for attempt in {1..50}; do
     exit 1
   fi
   if curl -fsS "${url}settings.js" 2>/dev/null | grep -q 'ocarina.adventure.settings.v1'; then
-    open -a "Google Chrome" "${url}?update=niche9" || open "${url}?update=niche9"
+    open -a "Google Chrome" "${url}?update=controls10" || open "${url}?update=controls10"
     echo 'Keep this window open while playing. Press Control-C to stop the game server.'
     wait "$game_server"
     exit

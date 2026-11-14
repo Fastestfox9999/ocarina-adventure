@@ -81,8 +81,22 @@ branch=bytes.fromhex('20 06 20 07 72 41 01 71 45 0d 01')
 assert bodies[idx].count(branch)==1
 # This branch is reached only after the first 20 cutscene frames.
 bodies[idx]=bodies[idx].replace(branch,b'\x41\x01\x24'+leb(gcount+5)+branch[:5]+b'\x23'+leb(gcount+6)+b'\x72\x41\x00\x24'+leb(gcount+6)+branch[5:])
+exports.extend([('changeAmmo',0,names['Inventory_ChangeAmmo']),('gameplayPaused',0,names['GameInteractor::IsGameplayPaused()']),('playerInCutscene',0,names['Player_InCsMode']),('fileChooseLoad',0,names['FileChoose_LoadGame']),('fileChoosePointer',3,gcount+7)])
+idx=names['FileChoose_Destroy']-num_imp
+body=bodies[idx];local=BytesIO(body);count=u(local)
+for _ in range(count):u(local);local.read(1)
+pos=local.tell();bodies[idx]=body[:pos]+b'\x41\x00\x24'+leb(gcount+7)+body[pos:]
+idx=names['FileChoose_Init']-num_imp
+assert bodies[idx][:3]==bytes.fromhex('01 02 7f')
+bodies[idx]=bodies[idx][:3]+b'\x20\x00\x24'+leb(gcount+7)+bodies[idx][3:]
+# Resolve AMMO(item) through the pinned engine's item-to-slot table.
+ammo_body=bodies[names['Inventory_ChangeAmmo']-num_imp]
+pattern=bytes.fromhex('41 e8 b7 a7 83 00 41 c0 8f e6 81 00')
+assert ammo_body.count(pattern)==1
+reader=BytesIO(pattern);reader.read(1);save_base=u(reader);reader.read(1);slot_table=u(reader)
+exports.extend([('ammoAddress',3,gcount+8),('itemSlotsAddress',3,gcount+9)])
 sec[7]=vector(sec[7],b''.join(leb(len(n))+n.encode()+bytes([kind])+leb(idx) for n,kind,idx in exports),len(exports))
-sec[6]=vector(sec[6],b'\x7d\x01\x43\0\0\0\0\x0b'*2 + b'\x7f\x00\x41' + leb(addresses[0]) + b'\x0b' + b'\x7f\x00\x41' + leb(play_address) + b'\x0b' + b'\x7f\x00\x41' + leb(menu_address) + b'\x0b'+b'\x7f\x01\x41\x00\x0b'*2,7)
+sec[6]=vector(sec[6],b'\x7d\x01\x43\0\0\0\0\x0b'*2 + b'\x7f\x00\x41' + leb(addresses[0]) + b'\x0b' + b'\x7f\x00\x41' + leb(play_address) + b'\x0b' + b'\x7f\x00\x41' + leb(menu_address) + b'\x0b'+b'\x7f\x01\x41\x00\x0b'*3+b'\x7f\x00\x41'+leb(save_base+0xa4)+b'\x0b'+b'\x7f\x00\x41'+leb(slot_table)+b'\x0b',10)
 # Add drag deltas to the native camera inputs. Camera_Free consumes them once per update.
 idx=names['Mouse_HandleThirdPerson']-num_imp
 body=bodies[idx]
@@ -93,6 +107,13 @@ bodies[idx]=body[:3]+instruction_delta(0,gcount)+instruction_delta(1,gcount+1)+b
 idx=names['Camera_Free']-num_imp
 assert bodies[idx][-1]==11
 bodies[idx]=bodies[idx][:-1]+b''.join(bytes([0x43,0,0,0,0,0x24])+leb(gcount+k) for k in range(2))+b'\x0b'
+idx=names['Camera_Free']-num_imp
+# eye.y = max(eye.y, player.floorHeight + 5)
+floor_guard=b'\x20\x00\x20\x00\x2a\x02\x60\x20\x00\x28\x02'+leb(0x90)+b'\x2a\x02'+leb(0x80)+b'\x43\x00\x00\xa0\x40\x92\x97\x38\x02\x60'
+# Insert before the final result constant.
+assert bodies[idx][-3:-1]==b'\x41\x01' or bodies[idx][-1]==11
+# Existing adapter clears camera deltas at the end while leaving the result on the stack.
+bodies[idx]=bodies[idx][:-1]+floor_guard+b'\x0b'
 sec[10]=leb(len(bodies))+b''.join(leb(len(b))+b for b in bodies)
 out=Path(sys.argv[2])
 out.write_bytes(header+b''.join(bytes([k])+leb(len(data))+data for k,orig in sections for data in [sec[k] if k else orig]))

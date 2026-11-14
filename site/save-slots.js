@@ -28,7 +28,7 @@ function addSaveSlots(content,status,saveCurrent){
         await write(path,FS.readFile(source));status.textContent='Progress saved to Slot '+slot+'.';
       });
       load.onclick=()=>perform(async()=>{
-        const targetSlot=[1,2,3].find(n=>!FS.analyzePath('/Save/file'+n+'.sav').exists)||1;
+        const targetSlot=[1,2,3,4,5].find(n=>!FS.analyzePath('/Save/file'+n+'.sav').exists)||1;
         const target='/Save/file'+targetSlot+'.sav',occupied=FS.analyzePath(target).exists;
         if(!confirm('Load Slot '+slot+' into File '+targetSlot+' and restart? Select File '+targetSlot+' at the opening screen.'+(occupied?' Its previous save will be kept as a recovery backup.':'')+' Unsaved progress will be lost.'))return;
         if(occupied)await write('/Save/before-slot-load.sav',FS.readFile(target));

@@ -6,4 +6,6 @@ Press M for settings and pause. Scroll to zoom the camera. Press K when a cutsce
 
 To transfer your progress from the local game to the website, download a backup under M → Saves and import it on the website. Saves are stored separately for each browser and website address.
 
-This release contains the tested adventure-skip8 game build and its required assets. Texture-pack artwork and engine credits are included in site/THIRD_PARTY.md and site/reloaded-credits.txt.
+This release contains the controls10 game build and its required assets. Texture-pack artwork and engine credits are included in site/THIRD_PARTY.md and site/reloaded-credits.txt.
+
+Controls10 adds five adventures at startup, Space jump, Tab quest/items, quantity-based supplies, camera/menu input isolation, native render scaling and supported chained cutscene skipping.

@@ -140,12 +140,24 @@ function createAdventureOptions({engine,prefs,persist,keyLabel}) {
       const label=document.createElement('label');label.append(name,s);row.append(label,b);box.append(row);
     }
     if(cheats){
-      const supplies=group('Refills and equipment');
+      const supplies=group('Refills and equipment',true);
       for(const [l,c] of [['Refill hearts','heal 20'],['Refill magic','fill_magic'],['Empty magic','empty_magic'],['Add heart container','add_heart_container'],['Remove heart container','remove_heart_container'],['Set wallet to 99 rupees','rupee 99']])action(supplies,l,c);
       const grant=id=>()=>{const api=engine();api.giveInventoryItem(HEAPU32[api.playStateAddress.value>>>2],Number(id))};
       picker(supplies,'Grant item',grantItems,grant,'Give item');
       picker(supplies,'Learn song',songs,grant,'Learn song');
-      picker(supplies,'Add ammunition',Object.fromEntries(['sticks','nuts','bombs','seeds','arrows','bombchus','beans'].map(v=>[v,v])),v=>'addammo '+v+' 10','Add 10');
+      const ammo=document.createElement('div');ammo.className='cheat-picker';
+      const kind=select('Supply',[[0,'Deku sticks'],[1,'Deku nuts'],[2,'Bombs'],[6,'Deku seeds'],[3,'Arrows'],[9,'Bombchus'],[16,'Magic beans']]);
+      const amount=document.createElement('input');amount.type='number';amount.min='1';amount.max='999';amount.step='1';amount.value='10';amount.setAttribute('aria-label','Amount');
+      const choice=document.createElement('label');choice.append('Give supplies',kind);
+      const count=document.createElement('label');count.append('Amount',amount);
+      const give=document.createElement('button');give.textContent='Give';
+      give.onclick=()=>{
+        if(!amount.reportValidity())return;
+        const value=Number(amount.value);if(!Number.isInteger(value))return;
+        run(()=>{const api=engine(),item=Number(kind.value),address=api.ammoAddress.value+HEAPU8[api.itemSlotsAddress.value+item],before=Math.max(0,HEAP8[address]);api.giveInventoryItem(HEAPU32[api.playStateAddress.value>>>2],item);HEAP8[address]=before;api.changeAmmo(item,Math.max(0,Math.min(value,(item===16?10:99)-before)));},kind.selectedOptions[0].text);
+        status.textContent+=' Inventory capacity applies.';
+      };
+      ammo.append(choice,count,give);supplies.append(ammo);
       picker(supplies,'Rupee counter',{'0 rupees':0,'99 rupees':99,'200 rupees':200,'500 rupees':500},v=>'rupee '+v,'Set rupees');
       picker(supplies,'Wear boots',{Kokiri:'kokiri',Iron:'iron',Hover:'hover'},v=>'boots '+v,'Equip');
       const bottles=group('Bottle contents');
