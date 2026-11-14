@@ -10162,7 +10162,7 @@ var UTF8Decoder = globalThis.TextDecoder && new TextDecoder();
     };
 
   
-  var _emscripten_set_window_title = (title) => document.title = UTF8ToString(title);
+  var _emscripten_set_window_title = (title) => document.title = "Ocarina of Time (niche)";
 
   var _emscripten_sleep = () => {
       abort('Please compile your program with async support in order to use asynchronous operations like emscripten_sleep');

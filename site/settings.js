@@ -69,7 +69,7 @@
   else updateKeyboardHelp();
   function showTab(name) {
     tab=name; listening=null; status.textContent='';content.scrollTop=0;
-    for (const b of panel.querySelectorAll('nav button')) b.setAttribute('aria-pressed',b.textContent===tab);
+    for (const b of panel.querySelectorAll('nav button')) b.setAttribute('aria-pressed',b.dataset.tab===tab);
     if (tab==='Controls') {
       content.innerHTML='<label>Mouse camera <select id="camera-mode"><option value="drag">Hold right-click</option><option value="move">Move mouse freely</option><option value="off">Off</option></select></label><p>Scroll up to zoom in or down to zoom out. In free-look, click the game to capture the mouse. Press Tab to release it, then hover or click the top buttons.</p><h3>Keybindings</h3><p>Select a binding and press a key. Escape cancels.</p>';
       const camera = content.querySelector('#camera-mode');
@@ -134,26 +134,28 @@
           };
           const row=document.createElement('div');row.className='row';row.append(select,download);content.append(row);
         }
+        addSaveSlots(content,status,save);
         addSaveImport(content,status,slots);
       }
     } else {
       options.draw(tab==='Cheats',content,status,promptsReady);
     }
   }
-  for(const name of buttons){const b=document.createElement('button');b.textContent=name;b.onclick=()=>showTab(name);panel.querySelector('nav').append(b)}
+  for(const name of buttons){const b=document.createElement('button');b.textContent=name;b.dataset.tab=name;b.onclick=()=>showTab(name);panel.querySelector('nav').append(b)}
   // The engine invokes syncfs as part of its synchronous web save. Observe that exact write.
   async function save(){
     if(busy)return;
     if(!engine()?.gameLoaded(0)){status.textContent='Open a named game file first.';return}
     busy=true;status.textContent='Saving…';
     try {
-      const original=FS.syncfs;let pending;
+      const original=FS.syncfs,originalRename=FS.rename;let pending,savedPath;
+      FS.rename=function(from,to){const result=originalRename.call(FS,from,to);if(/(?:^|\/)file[123]\.sav$/.test(to))savedPath=to;return result};
       FS.syncfs=function(populate,callback){
         pending=new Promise((resolve,reject)=>original.call(FS,populate,err=>{callback?.(err);err?reject(err):resolve()}));return pending;
       };
-      try {engine().saveProgress()} finally {FS.syncfs=original}
+      try {engine().saveProgress()} finally {FS.syncfs=original;FS.rename=originalRename}
       if(!pending)throw Error('No file was written.');
-      await pending;status.textContent='Progress saved in this browser.';
+      await pending;status.textContent='Progress saved in this browser.';return savedPath;
     }catch(e){status.textContent='Save failed. '+(e.message||e)}finally{busy=false}
   }
   function keyEvent(type,code,repeat=false){
@@ -175,7 +177,7 @@
   for(const name of buttons){const b=document.createElement('button');b.textContent=name;b.onclick=()=>{tab=name;openPanel();syncMenu()};nativeTabs.append(b)}
   document.body.append(nativeTabs);
   setInterval(syncMenu,150);
-  const back=document.createElement('button');back.textContent='Game menu';back.onclick=()=>{panel.close();setNative(true);syncMenu();canvas.focus()};panel.querySelector('nav').append(back);
+  const back=document.createElement('button');back.textContent='Game menu';back.onclick=()=>{panel.close();setNative(true);syncMenu();canvas.focus()};back.textContent='Engine settings';back.id='engine-settings';panel.querySelector('header').append(back);
   for(const button of panel.querySelectorAll('nav button')){
     const icon=document.createElement('img');icon.src='pause-icons/'+icons[button.textContent]+'.png';icon.alt='';button.prepend(icon);
   }
@@ -196,7 +198,7 @@
   },60);
   const menuFrame = () => !panel.open;
   function openPanel(){if(panel.open)return;release();setNative(false);if(typeof MainLoop!=='undefined'&&!MainLoop.preMainLoop.includes(menuFrame))MainLoop.preMainLoop.push(menuFrame);panel.showModal();showTab(tab)}
-  function closePanel(){if(panel.open)panel.close();setNative(false);syncMenu();canvas.focus();captureCamera()}
+  function closePanel(){if(busy||window.saveSlotBusy)return;if(panel.open)panel.close();setNative(false);syncMenu();canvas.focus();captureCamera()}
   open.onclick=enterMenu;panel.querySelector('#close-panel').onclick=closePanel;
   panel.oncancel=e=>{e.preventDefault();closePanel()};
   for(const type of ['keydown','keyup']){

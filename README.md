@@ -6,7 +6,7 @@
 
 Double-click **Play Ocarina.command** on macOS. The launcher uses Python 3 and opens the game at http://127.0.0.1:18764/. Keep its Terminal window open while playing. The game assets are included. Chrome was used for testing.
 
-Create or choose a file on the opening screen. With default bindings, X confirms, C goes back, WASD moves the selection and Space jumps to End when naming a file. Press M to pause. Select a page using its item icon, choose Game menu for the original engine settings, or press M to resume.
+Create or choose a file on the opening screen. With default bindings, X confirms, C goes back, WASD moves the selection and Space jumps to End when naming a file. Press M to pause. Select a page using its item icon, choose Engine settings for the original engine settings, or press M to resume.
 
 - **Controls** lets you assign a physical key to each action. Dialogue button prompts and menu legends follow those bindings. Under Mouse camera, choose Hold right-click, Move mouse freely, or Off. Free-look captures the mouse while you turn the camera. Press Tab to release the cursor, hover a top HUD button to see its current binding, or click it to use the action. Click the play area to capture the mouse again. Scroll up to bring the camera closer or down to pull it back in either mouse camera mode. The distance is remembered. Adjust mouse sensitivity from 0.25× to 3× and enable inverted vertical look if desired. During gameplay, switching tabs opens the pause menu by default. Return and press M to resume, or disable this behavior in Controls. Fixed-camera rooms and cutscenes control their own views.
 - **Graphics** sets the game's interpolation target to 20, 30 or 60 FPS. Render at 50%, 75%, 100%, 150% or 200% of window dimensions after reopening. The graphics page also controls distant model detail, widescreen visibility, 3D drops, Kokiri visibility and Temple of Time medallion colors.
@@ -27,3 +27,5 @@ Two fixed-view interior images in oot.o2r have revised furnishings and shop stoc
 **Texture pack** under M → Graphics switches between OoT Reloaded and Classic clean-room after a reload. The local browser version uses resized assets from the SoH HD release to fit browser memory.
 
 Press K or click Skip cutscene when the prompt appears. The launcher verifies and assembles the Reloaded archive from the three included parts. Personal save files and browser preferences live in your browser.
+
+Five independent checkpoints are available under M → Saves. Save to Slot 1–5 and use Load to restore into an original game file. The original engine chooser has three game files. If all are occupied, loading replaces File 1 after confirmation and keeps a downloadable recovery backup.
