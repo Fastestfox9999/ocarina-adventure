@@ -42,4 +42,4 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           gh release view adventure-skip8 || gh release create adventure-skip8 --verify-tag --title 'Ocarina Adventure — play online or download for Mac' --notes-file RELEASE.md
-          gh release upload adventure-skip8 Ocarina-Adventure-Mac.zip --clobber
+          gh release upload adventure-skip8 Ocarina-Adventure-Mac.zip Play-Ocarina.webloc --clobber

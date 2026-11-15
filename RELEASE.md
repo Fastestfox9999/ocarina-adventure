@@ -1,3 +1,5 @@
+Download **Play-Ocarina.webloc** from Assets and double-click it to open the online game. No Terminal or Python is required. Internet access is required; this uses the website’s saves, separate from local-game saves.
+
 Play immediately in your browser at https://fastestfox9999.github.io/ocarina-adventure/.
 
 For local play on macOS, download Ocarina-Adventure-Mac.zip, unzip it, and double-click Play Ocarina.command. Python 3 is required for the local launcher. Keep its Terminal window open while playing. Chrome was used for testing.
