@@ -274,7 +274,7 @@
       if(!target&&!Object.hasOwn(actions,e.code))return;
       e.preventDefault();e.stopImmediatePropagation();
       if(!target)return;
-      if(down){if(target==='Space')releaseCamera();held.set(e.code,target);keyEvent(type,target,e.repeat)}
+      if(down){if(target==='Space')zero();held.set(e.code,target);keyEvent(type,target,e.repeat)}
       else {held.delete(e.code);keyEvent(type,target)}
     },true)
   }
@@ -357,7 +357,8 @@
     engine().dragY.value=clip(engine().dragY.value+gain*(prefs.invertMouseY?-1:1)*e.movementY);
     clearTimeout(expiry);expiry=setTimeout(zero,180)
   }
-  setInterval(()=>{if(engine()?.gameLoaded(1)&&!canMove()){zero();if(document.pointerLockElement===canvas)releaseCamera()}},100);
+  // Menus and cutscenes suppress camera input without surrendering pointer lock.
+  setInterval(()=>{if(!canMove())zero()},100);
   for(const event of ['pointerup','pointercancel','lostpointercapture'])canvas.addEventListener(event,endDrag);
   function pauseOnLeave(){
     release();

@@ -1,6 +1,6 @@
 # Ocarina of Time (niche)
 
-**[Play now in your browser](https://fastestfox9999.github.io/ocarina-adventure/?update=original12)** · **[Download the Mac shortcut](https://github.com/Fastestfox9999/ocarina-adventure/releases/download/adventure-skip8/Play-Ocarina.webloc)** · [Release assets](https://github.com/Fastestfox9999/ocarina-adventure/releases/tag/adventure-skip8)
+**[Play now in your browser](https://fastestfox9999.github.io/ocarina-adventure/?update=capture13)** · **[Download the Mac shortcut](https://github.com/Fastestfox9999/ocarina-adventure/releases/download/adventure-skip8/Play-Ocarina.webloc)** · [Release assets](https://github.com/Fastestfox9999/ocarina-adventure/releases/tag/adventure-skip8)
 
 For a clickable shortcut on your Mac, download **Play-Ocarina.webloc** from the release’s **Assets**, then double-click it. It opens the online game in your browser—no Terminal, Python, installation or sign-in required. Internet access is required; this is a browser shortcut, not an offline app.
 
@@ -41,3 +41,5 @@ Cheats → Give supplies accepts an exact quantity, limited by the item's capaci
 
 
 The original in-game save selector is restored. Earlier File 4 and File 5 saves are preserved: download them under **M → Saves**, then import into one of the original three files to continue.
+
+The captured mouse stays captured through the Tab quest/items menu, dialogue and cutscenes. Camera motion is ignored there. Escape releases it; M releases it for the clickable settings menu.

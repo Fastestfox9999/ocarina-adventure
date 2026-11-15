@@ -11,6 +11,6 @@ addEventListener('DOMContentLoaded',()=>{
   help.append(message,retry,classic);overlay.append(help);
   if(location.protocol==='file:'){
     help.replaceChildren();const text=document.createElement('p');text.textContent='The downloaded repository cannot run by opening index.html directly. Open the playable website instead:';
-    const link=document.createElement('a');link.textContent='Play Ocarina of Time';link.href='https://fastestfox9999.github.io/ocarina-adventure/?update=original12';help.append(text,link);help.hidden=false;
+    const link=document.createElement('a');link.textContent='Play Ocarina of Time';link.href='https://fastestfox9999.github.io/ocarina-adventure/?update=capture13';help.append(text,link);help.hidden=false;
   }else setTimeout(()=>{if(!overlay.classList.contains('hidden'))help.hidden=false},12000);
 });
