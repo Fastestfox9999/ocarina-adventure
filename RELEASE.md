@@ -1,13 +1,11 @@
-Download **Play-Ocarina.webloc** from Assets and double-click it to open the online game. No Terminal or Python is required. Internet access is required; this uses the website’s saves, separate from local-game saves.
+**[Play now](https://fastestfox9999.github.io/ocarina-adventure/?update=controls10)** · **[Download Play-Ocarina.webloc](https://github.com/Fastestfox9999/ocarina-adventure/releases/download/adventure-skip8/Play-Ocarina.webloc)**
 
-Play immediately in your browser at https://fastestfox9999.github.io/ocarina-adventure/.
+Under **Assets**, choose **Play-Ocarina.webloc**, download it and double-click it on your Mac. It opens the online game directly. No Terminal, Python, installation or sign-in is needed. Internet access is required; this is a browser shortcut, not an offline app.
 
-For local play on macOS, download Ocarina-Adventure-Mac.zip, unzip it, and double-click Play Ocarina.command. Python 3 is required for the local launcher. Keep its Terminal window open while playing. Chrome was used for testing.
+The website stores saves separately from the local game. To transfer progress, export a backup under **M → Saves** in the local game, then import it on the website using the same browser you intend to play in.
 
-Press M for settings and pause. Scroll to zoom the camera. Press K when a cutscene skip prompt appears. Includes OoT Reloaded browser textures, editable controls, cheats, quality-of-life options, and save import/export.
+Includes five adventure files, editable controls, Space jump, Tab quest/items, M settings/pause, mouse camera and scroll zoom, OoT Reloaded browser textures, quantity cheats, save import/export and supported chained-cutscene skipping. K skips eligible cutscenes; some scripted scenes still require normal actions.
 
-To transfer your progress from the local game to the website, download a backup under M → Saves and import it on the website. Saves are stored separately for each browser and website address.
+**Optional local package:** Ocarina-Adventure-Mac.zip contains the game files and the older command launcher. Only that package requires Python 3 and a Terminal window. Choose the .webloc shortcut for the simple click-to-play option.
 
-This release contains the controls10 game build and its required assets. Texture-pack artwork and engine credits are included in site/THIRD_PARTY.md and site/reloaded-credits.txt.
-
-Controls10 adds five adventures at startup, Space jump, Tab quest/items, quantity-based supplies, camera/menu input isolation, native render scaling and supported chained cutscene skipping.
+Engine and texture credits are included in site/THIRD_PARTY.md and site/reloaded-credits.txt.

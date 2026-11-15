@@ -1,6 +1,10 @@
-# Ocarina of Time · local edition
+# Ocarina of Time (niche)
 
-Double-click **Play Ocarina.command** on macOS. The launcher uses Python 3 and opens the game at http://127.0.0.1:18764/. Keep its Terminal window open while playing. The game assets are included. Chrome was used for testing.
+**[Play now in your browser](https://fastestfox9999.github.io/ocarina-adventure/?update=controls10)** · **[Download the Mac shortcut](https://github.com/Fastestfox9999/ocarina-adventure/releases/download/adventure-skip8/Play-Ocarina.webloc)** · [Release assets](https://github.com/Fastestfox9999/ocarina-adventure/releases/tag/adventure-skip8)
+
+For a clickable shortcut on your Mac, download **Play-Ocarina.webloc** from the release’s **Assets**, then double-click it. It opens the online game in your browser—no Terminal, Python, installation or sign-in required. Internet access is required; this is a browser shortcut, not an offline app.
+
+Your online saves stay in the browser you use. To bring progress from the local game, export a backup under **M → Saves**, then import it on the website.
 
 Create or choose a file on the opening screen. Choose one of five adventures with the mouse or keyboard; enter a name when creating a new file. Press M to pause. Select a page using its item icon, choose Engine settings for the original engine settings, or press M to resume.
 
@@ -10,7 +14,14 @@ Create or choose a file on the opening screen. Choose one of five adventures wit
 - **Cheats** lets you search for infinite resources, movement cheats, equipment, songs, bottle contents, warps, enemies and challenges. Switches persist in this browser. Save after granting items to keep them. Download a backup from **Saves** before experimenting.
 - **Quality of life** includes faster dialogue and warping from learned songs on the quest screen. Seven game fixes start enabled, including floor-switch alignment, Goron City doors and Deku Nut upgrade eligibility. Each can be changed individually.
 
-For another operating system, serve the site folder with Python 3 using `python3 -m http.server 18764 --bind 127.0.0.1`, and open the address above. For static hosting, copy the contents of site to one directory and serve .wasm files as application/wasm.
+<details>
+<summary>Optional local package and self-hosting</summary>
+
+The separate **Ocarina-Adventure-Mac.zip** includes the game files and the older **Play Ocarina.command** launcher. That launcher requires Python 3 and an open Terminal window; the clickable online shortcut above does not.
+
+For another operating system, serve the `site` folder with `python3 -m http.server 18764 --bind 127.0.0.1` and open http://127.0.0.1:18764/. For static hosting, serve the site contents with `.wasm` files as `application/wasm`.
+
+</details>
 
 ## Source and scope
 
