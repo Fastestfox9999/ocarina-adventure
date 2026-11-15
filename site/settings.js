@@ -162,7 +162,7 @@
     busy=true;status.textContent='Saving…';
     try {
       const original=FS.syncfs,originalRename=FS.rename;let pending,savedPath;
-      FS.rename=function(from,to){const result=originalRename.call(FS,from,to);if(/(?:^|\/)file[1-5]\.sav$/.test(to))savedPath='/Save/file'+(window.activeSaveFile||1)+'.sav';return result};
+      FS.rename=function(from,to){const result=originalRename.call(FS,from,to);const match=String(to).match(/(?:^|\/)file([1-3])\.sav$/);if(match)savedPath='/Save/file'+match[1]+'.sav';return result};
       FS.syncfs=function(populate,callback){
         pending=new Promise((resolve,reject)=>original.call(FS,populate,err=>{callback?.(err);err?reject(err):resolve()}));return pending;
       };

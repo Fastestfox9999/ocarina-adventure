@@ -1,12 +1,12 @@
 # Ocarina of Time (niche)
 
-**[Play now in your browser](https://fastestfox9999.github.io/ocarina-adventure/?update=selector11)** · **[Download the Mac shortcut](https://github.com/Fastestfox9999/ocarina-adventure/releases/download/adventure-skip8/Play-Ocarina.webloc)** · [Release assets](https://github.com/Fastestfox9999/ocarina-adventure/releases/tag/adventure-skip8)
+**[Play now in your browser](https://fastestfox9999.github.io/ocarina-adventure/?update=original12)** · **[Download the Mac shortcut](https://github.com/Fastestfox9999/ocarina-adventure/releases/download/adventure-skip8/Play-Ocarina.webloc)** · [Release assets](https://github.com/Fastestfox9999/ocarina-adventure/releases/tag/adventure-skip8)
 
 For a clickable shortcut on your Mac, download **Play-Ocarina.webloc** from the release’s **Assets**, then double-click it. It opens the online game in your browser—no Terminal, Python, installation or sign-in required. Internet access is required; this is a browser shortcut, not an offline app.
 
 Your online saves stay in the browser you use. To bring progress from the local game, export a backup under **M → Saves**, then import it on the website.
 
-Create or choose a file on the opening screen. Choose one of five adventures with the mouse or keyboard; enter a name when creating a new file. Press M to pause. Select a page using its item icon, choose Engine settings for the original engine settings, or press M to resume.
+Create or choose a file on the opening screen. Choose one of the original three files with the mouse or keyboard; enter a name when creating a new file. Press M to pause. Select a page using its item icon, choose Engine settings for the original engine settings, or press M to resume.
 
 - **Controls** lets you assign a physical key to each action. Dialogue button prompts and menu legends follow those bindings. Under Mouse camera, choose Hold right-click, Move mouse freely, or Off. Free-look captures the mouse while you turn the camera. Press Escape to release the cursor, hover a top HUD button to see its current binding, or click it to use the action. Click the play area to capture the mouse again. Scroll up to bring the camera closer or down to pull it back in either mouse camera mode. The distance is remembered. Adjust mouse sensitivity from 0.25× to 3× and enable inverted vertical look if desired. During gameplay, switching tabs opens the pause menu by default. Return and press M to resume, or disable this behavior in Controls. Fixed-camera rooms and cutscenes control their own views.
 - **Graphics** sets the game's interpolation target to 20, 30 or 60 FPS. Render at 50%, 75%, 100%, 150% or 200% of window dimensions immediately. The graphics page also controls distant model detail, widescreen visibility, 3D drops, Kokiri visibility and Temple of Time medallion colors.
@@ -33,10 +33,11 @@ Two fixed-view interior images in oot.o2r have revised furnishings and shop stoc
 
 **Texture pack** under M → Graphics switches between OoT Reloaded and Classic clean-room after a reload. The local browser version uses resized assets from the SoH HD release to fit browser memory.
 
-The opening chooser offers **five separate adventures**. Existing File 1–3 saves remain usable; File 4 and File 5 use the same save format. The native engine uses its first internal slot, routed to the chosen physical save file. Five additional checkpoint backups remain available under M → Saves.
+The original native file selector offers three game files, with its original naming screen, Copy, Erase and Options. Five additional checkpoint backups remain under M → Saves.
 
 Default controls: **WASD** move, **E** Action, **F** Sword, **Shift** Target, **Q** Shield, **Space** grounded jump, **Tab** quest/items, **M** settings/pause, **K** skip an eligible cutscene. Mouse input stops during dialogue and menus. Free-camera height is kept above Link's current floor plane, alongside the native collision checks.
 
 Cheats → Give supplies accepts an exact quantity, limited by the item's capacity; arrows, seeds and bombs need their normal capacity upgrades. Quality of life includes automatic skipping for the engine's supported story, entrance, song, boss and one-point cutscenes. K keeps skipping eligible commands across chained scenes until gameplay resumes. Some actor-driven scenes are not covered; universal skipping is not guaranteed.
 
-The five-file chooser now uses the game’s blue-panel styling, shows names and hearts, and supports Copy, Erase and Import. Opening a file no longer reloads or downloads the game again. If online startup stalls, use **Start with Classic textures** on the loading screen; save data is preserved. The GitHub repository page is source code—use **Play now** to run the game.
+
+The original in-game save selector is restored. Earlier File 4 and File 5 saves are preserved: download them under **M → Saves**, then import into one of the original three files to continue.
