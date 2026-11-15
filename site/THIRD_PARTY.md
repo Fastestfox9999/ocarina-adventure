@@ -14,3 +14,5 @@
 This is a fan project, not affiliated with or endorsed by Nintendo or Rare; game names are trademarks of their owners. If any upstream link here stops working, open an issue at https://github.com/andrewnakas/oot-cleanroom and we will provide the source we built from.
 
 The optional classic graphics use oot.o2r. The default browser edition of GhostlyDark’s OoT Reloaded v11.0.0 uses resized alternate textures. [Original release](https://github.com/GhostlyDark/OoT-Reloaded-SoH/releases/tag/v11.0.0) and [artist credits](reloaded-credits.txt).
+
+The file selector’s title and panel textures in `file-select/` are decoded from the classic clean-room `oot.o2r` archive above.

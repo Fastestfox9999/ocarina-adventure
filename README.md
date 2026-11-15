@@ -1,6 +1,6 @@
 # Ocarina of Time (niche)
 
-**[Play now in your browser](https://fastestfox9999.github.io/ocarina-adventure/?update=controls10)** · **[Download the Mac shortcut](https://github.com/Fastestfox9999/ocarina-adventure/releases/download/adventure-skip8/Play-Ocarina.webloc)** · [Release assets](https://github.com/Fastestfox9999/ocarina-adventure/releases/tag/adventure-skip8)
+**[Play now in your browser](https://fastestfox9999.github.io/ocarina-adventure/?update=selector11)** · **[Download the Mac shortcut](https://github.com/Fastestfox9999/ocarina-adventure/releases/download/adventure-skip8/Play-Ocarina.webloc)** · [Release assets](https://github.com/Fastestfox9999/ocarina-adventure/releases/tag/adventure-skip8)
 
 For a clickable shortcut on your Mac, download **Play-Ocarina.webloc** from the release’s **Assets**, then double-click it. It opens the online game in your browser—no Terminal, Python, installation or sign-in required. Internet access is required; this is a browser shortcut, not an offline app.
 
@@ -38,3 +38,5 @@ The opening chooser offers **five separate adventures**. Existing File 1–3 sav
 Default controls: **WASD** move, **E** Action, **F** Sword, **Shift** Target, **Q** Shield, **Space** grounded jump, **Tab** quest/items, **M** settings/pause, **K** skip an eligible cutscene. Mouse input stops during dialogue and menus. Free-camera height is kept above Link's current floor plane, alongside the native collision checks.
 
 Cheats → Give supplies accepts an exact quantity, limited by the item's capacity; arrows, seeds and bombs need their normal capacity upgrades. Quality of life includes automatic skipping for the engine's supported story, entrance, song, boss and one-point cutscenes. K keeps skipping eligible commands across chained scenes until gameplay resumes. Some actor-driven scenes are not covered; universal skipping is not guaranteed.
+
+The five-file chooser now uses the game’s blue-panel styling, shows names and hearts, and supports Copy, Erase and Import. Opening a file no longer reloads or downloads the game again. If online startup stalls, use **Start with Classic textures** on the loading screen; save data is preserved. The GitHub repository page is source code—use **Play now** to run the game.
